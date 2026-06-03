@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActionSA Ward 15 | The Emfuleni Opportunity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        actionsa: {
+                            green: '#006341',
+                            light: '#E6F2EE',
+                            accent: '#00A86B',
+                            dark: '#004d33'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .slide-in { animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #006341; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #004d33; }
+
+        .nav-scrolled { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-scrolled a { color: #1f2937 !important; }
+        .nav-scrolled .logo-text { color: #006341 !important; }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 77, 51, 0.88), rgba(0, 99, 65, 0.92)), url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .prose-custom p { margin-bottom: 1.5em; line-height: 1.8; color: #374151; }
+        .prose-custom h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2em; margin-bottom: 0.75em; }
+        .prose-custom blockquote { border-left: 4px solid #006341; padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5em 0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-actionsa-green font-bold text-xl border-2 border-actionsa-green">
+                            A
+                        </div>
+                        <span class="logo-text font-bold text-2xl tracking-tight">ActionSA <span class="font-light">Ward 15</span></span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-actionsa-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#opportunity" class="hover:text-actionsa-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">The Opportunity</a>
+                        <a href="#audit" class="hover:text-actionsa-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">The Audit</a>
+                        <a href="#rights" class="hover:text-actionsa-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Know Your Rights</a>
+                        <a href="#news" class="hover:text-actionsa-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">News</a>
+                        <a href="#join" class="bg-white text-actionsa-green hover:bg-gray-100 px-4 py-2 rounded-full text-sm font-bold transition-all shadow-lg">Join Ward 15</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md hover:text-white hover:bg-actionsa-green focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white text-gray-800 absolute w-full shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-actionsa-light hover:text-actionsa-green">Home</a>
+                <a href="#opportunity" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-actionsa-light hover:text-actionsa-green">The Opportunity</a>
+                <a href="#audit" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-actionsa-light hover:text-actionsa-green">The Audit</a>
+                <a href="#rights" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-actionsa-light hover:text-actionsa-green">Know Your Rights</a>
+                <a href="#news" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-actionsa-light hover:text-actionsa-green">News</a>
+                <a href="#join" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-actionsa-green font-bold">Join Ward 15</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <span class="inline-block py-1 px-3 rounded-full bg-actionsa-accent bg-opacity-20 border border-actionsa-accent text-white text-sm font-semibold mb-6">
+                    ActionSA Ward 15 — Emfuleni
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                    Emfuleni Is <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-white">Ripe For The Taking</span>
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-200 mb-10">
+                    The water crisis, the billing scandal, and a municipality in collapse have created a voter base hungry for change. 
+                    ActionSA must position itself now — or watch another party seize the prize we could have won.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#join" class="bg-white text-actionsa-green px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-100 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                        <i class="fas fa-hand-holding-heart"></i> Join The Ground Force
+                    </a>
+                    <a href="#audit" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-actionsa-green transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-clipboard-list"></i> View The Audit
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <div class="stat-card rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-white">Ward 28</div>
+                    <div class="text-sm text-gray-300 mt-1">DA Won Beverly Hills<br>We Could Have Taken It</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-white">Class Action</div>
+                    <div class="text-sm text-gray-300 mt-1">Water Billing Crisis<br>We Are Already Fighting</div>
+                </div>
+                <div class="stat-card rounded-xl p-6 text-center">
+                    <div class="text-4xl font-bold text-white">Now</div>
+                    <div class="text-sm text-gray-300 mt-1">The Window Is Open<br>ActionSA Must Move</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Opportunity Section -->
+    <section id="opportunity" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-actionsa-green font-bold tracking-wide uppercase text-sm">Strategic Analysis</h2>
+                <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    The Emfuleni Opportunity
+                </h3>
+                <p class="mt-4 max-w-3xl text-xl text-gray-500 mx-auto">
+                    This is not a by-election. This is a voter revolt waiting for a vessel. ActionSA must be that vessel.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-actionsa-light rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-actionsa-green rounded-lg flex items-center justify-center text-white text-xl mb-6 shadow-lg">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">The Water Crisis</h4>
+                        <p class="text-gray-600 mb-4">
+                            Overbilling, water cuts, and crumbling infrastructure have turned every household into an angry voter. The municipality has lost the trust of its own people.
+                        </p>
+                        <div class="text-sm text-actionsa-green font-semibold">
+                            <i class="fas fa-gavel mr-1"></i> We joined the class action. We are already fighting.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-actionsa-light rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-actionsa-green rounded-lg flex items-center justify-center text-white text-xl mb-6 shadow-lg">
+                            <i class="fas fa-vote-yea"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Ward 28 Proved It</h4>
+                        <p class="text-gray-600 mb-4">
+                            The DA won Beverly Hills — a ward ActionSA could have taken with proper mobilisation. That loss is proof of a vacuum, not DA strength. The voters are movable.
+                        </p>
+                        <div class="text-sm text-actionsa-green font-semibold">
+                            <i class="fas fa-chart-line mr-1"></i> The ground is shifting. We must shift faster.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-gray-50 rounded-2xl p-8 border border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-actionsa-light rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-actionsa-green rounded-lg flex items-center justify-center text-white text-xl mb-6 shadow-lg">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">The Ground Force</h4>
+                        <p class="text-gray-600 mb-4">
+                            Ward 15 is building the machinery. We are logging faults, educating residents on their rights, and recruiting the army that will win this municipality.
+                        </p>
+                        <div class="text-sm text-actionsa-green font-semibold">
+                            <i class="fas fa-bullhorn mr-1"></i> Join us. The REC will follow the people.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Emfuleni Audit / Fault Logger -->
+    <section id="audit" class="py-20 bg-actionsa-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-start">
+                <div>
+                    <h2 class="text-actionsa-green font-bold tracking-wide uppercase text-sm">Field Intelligence</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-6">
+                        The Emfuleni Audit
+                    </h3>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Every fault logged here is evidence of municipal failure — and proof that ActionSA Ward 15 is already on the ground, documenting the decay, and building the case for change.
+                    </p>
+
+                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200 mb-8">
+                        <h4 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <i class="fas fa-file-alt text-actionsa-green"></i> Audit Summary
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <span class="text-gray-600">Water Supply Issues</span>
+                                <span class="font-bold text-actionsa-green text-lg">12</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <span class="text-gray-600">Electricity / Street Lights</span>
+                                <span class="font-bold text-actionsa-green text-lg">8</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <span class="text-gray-600">Sewage / Drainage</span>
+                                <span class="font-bold text-actionsa-green text-lg">5</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-100">
+                                <span class="text-gray-600">Roads / Potholes</span>
+                                <span class="font-bold text-actionsa-green text-lg">7</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-1">
+                                <span class="font-bold text-gray-800">Total Faults Logged</span>
+                                <span class="font-bold text-actionsa-green text-2xl">32</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-actionsa-green text-white rounded-xl p-6 shadow-lg">
+                        <h4 class="font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-lightbulb"></i> Why This Matters
+                        </h4>
+                        <p class="text-sm text-actionsa-light">
+                            When ActionSA national leadership sees this audit, they will see a team that knows the terrain, has the data, and is ready to govern. This is not a request for help. This is proof of readiness.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-10 lg:mt-0">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">Log a New Fault</h4>
+                        <p class="text-sm text-gray-500 mb-6">Anonymous. Every entry strengthens the audit.</p>
+
+                        <form id="faultForm" onsubmit="submitFault(event)">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Type of Fault</label>
+                                    <select id="faultType" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-actionsa-green focus:border-transparent outline-none transition-all">
+                                        <option value="">Select Issue...</option>
+                                        <option value="water">Water Supply / Leak / Overbilling</option>
+                                        <option value="electricity">Electricity / Street Lights</option>
+                                        <option value="sewage">Sewage / Drainage</option>
+                                        <option value="roads">Roads / Potholes</option>
+                                        <option value="waste">Waste Collection</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Area / Suburb</label>
+                                    <input type="text" id="faultArea" placeholder="e.g. Vereeniging, Three Rivers, Sebokeng" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-actionsa-green focus:border-transparent outline-none transition-all" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nearest Street Address</label>
+                                <input type="text" id="faultAddress" placeholder="e.g. 123 Voortrekker Street" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-actionsa-green focus:border-transparent outline-none transition-all" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Description of the Problem</label>
+                                <textarea id="faultDesc" rows="4" placeholder="Describe the issue in detail..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-actionsa-green focus:border-transparent outline-none transition-all" required></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-actionsa-green text-white font-bold py-4 rounded-lg hover:bg-actionsa-dark transition-all transform hover:scale-[1.01] shadow-lg flex justify-center items-center gap-2">
+                                <i class="fas fa-paper-plane"></i> Submit to Audit
+                            </button>
+                            <p class="text-xs text-center text-gray-400 mt-4">*Anonymous submission. Strengthens the case for change.</p>
+                        </form>
+
+                        <div id="faultSuccess" class="hidden mt-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Logged!</strong>
+                            <span class="block sm:inline"> Audit reference: <span id="refId" class="font-mono font-bold"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-900 mb-4">Recently Logged Faults</h4>
+                        <div class="space-y-3" id="faultsList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Know Your Rights Section -->
+    <section id="rights" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-actionsa-green font-bold tracking-wide uppercase text-sm">Empowerment</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-6">
+                        Know Your Rights
+                    </h3>
+                    <p class="text-lg text-gray-600 mb-8">
+                        The Constitution guarantees your rights. The Municipal Systems Act empowers you. When Emfuleni fails to deliver, you have legal recourse — and ActionSA Ward 15 will help you use it.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-actionsa-green cursor-pointer hover:shadow-md transition-all" onclick="toggleRight(1)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-gray-800">Right to Basic Services</h4>
+                                <i class="fas fa-chevron-down text-actionsa-green transition-transform" id="icon-1"></i>
+                            </div>
+                            <div id="right-1" class="hidden mt-3 text-gray-600 text-sm">
+                                Section 27 of the Constitution guarantees access to sufficient water. Section 24 guarantees a healthy environment. When Emfuleni cuts water or allows sewage to flow in streets, they violate your constitutional rights. The class action we joined is built on this legal foundation.
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-actionsa-green cursor-pointer hover:shadow-md transition-all" onclick="toggleRight(2)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-gray-800">Municipal Bylaws</h4>
+                                <i class="fas fa-chevron-down text-actionsa-green transition-transform" id="icon-2"></i>
+                            </div>
+                            <div id="right-2" class="hidden mt-3 text-gray-600 text-sm">
+                                Emfuleni has bylaws covering noise control, public nuisances, building regulations, and waste management. These laws exist to protect you. ActionSA Ward 15 is documenting where the municipality fails to enforce its own laws — and we will use that evidence to hold them accountable.
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-actionsa-green cursor-pointer hover:shadow-md transition-all" onclick="toggleRight(3)">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-gray-800">What To Do When Govt Fails</h4>
+                                <i class="fas fa-chevron-down text-actionsa-green transition-transform" id="icon-3"></i>
+                            </div>
+                            <div id="right-3" class="hidden mt-3 text-gray-600 text-sm">
+                                1. Log the fault on this audit.<br>
+                                2. Report to the Municipal Manager in writing.<br>
+                                3. Escalate to the Public Protector for maladministration.<br>
+                                4. Join the class action on water billing.<br>
+                                5. Join ActionSA Ward 15. Political accountability is the fastest remedy.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 lg:mt-0 relative">
+                    <div class="absolute -inset-4 bg-actionsa-green rounded-2xl transform rotate-2 opacity-10"></div>
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Justice Scale" class="relative rounded-2xl shadow-2xl w-full object-cover h-96">
+                    <div class="absolute bottom-6 left-6 right-6 bg-white p-4 rounded-xl shadow-lg">
+                        <p class="text-sm font-semibold text-actionsa-green">"The people shall govern."</p>
+                        <p class="text-xs text-gray-500 mt-1">Freedom Charter, 1955</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News / Blog Section -->
+    <section id="news" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-actionsa-green font-bold tracking-wide uppercase text-sm">Latest Intelligence</h2>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        News From The Frontline
+                    </h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Featured Post -->
+                <article class="lg:col-span-2 bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <div class="h-64 bg-gray-200 relative">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Water Crisis">
+                        <div class="absolute top-4 left-4 bg-actionsa-green text-white text-xs font-bold px-3 py-1 rounded uppercase">Strategic Brief</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="text-sm text-gray-500 mb-2">June 3, 2026</div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 hover:text-actionsa-green cursor-pointer">Emfuleni Is Ripe for Change: The Tide Turns in the Vaal</h4>
+                        <div class="prose-custom text-gray-600 mb-6 flex-1">
+                            <p>The collapse of governance in Emfuleni is no longer a story being told from the outside. It is something residents live through every month — on their billing statements, at their taps, and at the end of a phone line that nobody answers. The municipality has not merely underperformed. It has systematically failed the people it was built to serve, and the community has quietly reached the end of its patience.</p>
+
+                            <p>The numbers confirm what residents already know. An independent oversight audit uncovered 32 distinct administrative and infrastructure faults across the municipality — not isolated incidents, but evidence of a structural breakdown that runs through every department. These are not problems that can be smoothed over with a press release or a new committee. They are the fingerprints of an institution that has stopped functioning.</p>
+
+                            <p>The community's response has been proportionate. A water billing class action is being prepared for the High Court, targeting the Mayor, the Municipal Manager, and the Speaker directly. The legal argument is straightforward: residents have been billed for services that were never delivered, using estimates that bear no relationship to actual meter readings. That is not administrative error. It is financial exploitation, and it has gone on long enough to attract serious legal attention.</p>
+
+                            <p>The political picture is shifting too. The DA's recent capture of Ward 28 in Beverly Hills was not a fluke. It was a signal — readable to anyone paying attention — that voters in this region are done waiting for the ruling party to fix itself from within. The old loyalties are loosening. People are making new calculations.</p>
+
+                            <p>Into that opening, a disciplined ground operation in Ward 15 is quietly building something durable. The focus is not on noise. It is on structure: a centralized data platform that registers affected ratepayers, documents billing irregularities, and converts individual grievances into collective legal and electoral weight. Every resident who uploads a statement becomes part of something larger than a complaint.</p>
+
+                            <p>The argument to regional leadership is not complicated. The legal framework is in place. The ground structures are growing. The community is ready. Emfuleni has not been ungovernable — it has simply been badly governed. That is a problem with a solution, and the window to deliver it is open right now.</p>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm text-gray-500 pt-4 border-t border-gray-100">
+                            <span><i class="fas fa-user mr-1"></i> ActionSA Ward 15</span>
+                            <span><i class="fas fa-clock mr-1"></i> 5 min read</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Side Posts -->
+                <div class="flex flex-col gap-8">
+                    <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                        <div class="h-40 bg-gray-200 relative">
+                            <img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Class Action">
+                            <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">Legal</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-sm text-gray-500 mb-2">June 1, 2026</div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-2 hover:text-actionsa-green cursor-pointer">Joining The Class Action: Water Billing Crisis</h4>
+                            <p class="text-gray-600 text-sm mb-4 flex-1">
+                                Ward 15 has formally joined the class action movement demanding Emfuleni resolve its water billing crisis. This is not just legal action. It is political positioning.
+                            </p>
+                            <a href="#" class="text-actionsa-green font-semibold text-sm hover:underline">Read more</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                        <div class="h-40 bg-gray-200 relative">
+                            <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Volunteers">
+                            <div class="absolute top-4 left-4 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">Mobilisation</div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="text-sm text-gray-500 mb-2">May 28, 2026</div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-2 hover:text-actionsa-green cursor-pointer">Building The Ward 15 Ground Force</h4>
+                            <p class="text-gray-600 text-sm mb-4 flex-1">
+                                We are recruiting volunteers across Emfuleni to monitor service delivery, educate residents, and prepare the machinery for 2026. The REC will follow the people.
+                            </p>
+                            <a href="#" class="text-actionsa-green font-semibold text-sm hover:underline">Read more</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join / Get Involved Section -->
+    <section id="join" class="py-20 bg-actionsa-green text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+                <div>
+                    <h2 class="text-3xl font-extrabold mb-6">Join The Ward 15 Ground Force</h2>
+                    <p class="text-actionsa-light text-lg mb-8">
+                        We are not waiting for permission. We are building the winning machinery now. Join the team that knows the terrain, has the data, and is ready to govern.
+                    </p>
+
+                    <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 border border-white border-opacity-20">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-plus"></i> Volunteer Sign-Up
+                        </h3>
+                        <form id="volunteerForm" onsubmit="handleVolunteer(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 placeholder-gray-200 text-white focus:outline-none focus:ring-2 focus:ring-white" required>
+                                <input type="text" placeholder="Last Name" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 placeholder-gray-200 text-white focus:outline-none focus:ring-2 focus:ring-white" required>
+                            </div>
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 placeholder-gray-200 text-white focus:outline-none focus:ring-2 focus:ring-white" required>
+                            <input type="tel" placeholder="Phone Number (WhatsApp)" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 placeholder-gray-200 text-white focus:outline-none focus:ring-2 focus:ring-white" required>
+                            <select class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-200 focus:outline-none focus:ring-2 focus:ring-white">
+                                <option value="" class="text-gray-800">Area of Residence</option>
+                                <option value="vereeniging" class="text-gray-800">Vereeniging</option>
+                                <option value="three_rivers" class="text-gray-800">Three Rivers</option>
+                                <option value="vanderbijl" class="text-gray-800">Vanderbijlpark</option>
+                                <option value="sebokeng" class="text-gray-800">Sebokeng</option>
+                                <option value="beverly_hills" class="text-gray-800">Beverly Hills</option>
+                                <option value="other" class="text-gray-800">Other</option>
+                            </select>
+                            <button type="submit" class="w-full bg-white text-actionsa-green font-bold py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                                Join The Ground Force
+                            </button>
+                        </form>
+                        <div id="volunteerSuccess" class="hidden mt-4 text-green-300 text-sm font-semibold">
+                            <i class="fas fa-check-circle"></i> Welcome to the team. We will contact you via WhatsApp.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center">
+                    <div class="bg-white text-gray-800 rounded-2xl p-8 shadow-2xl">
+                        <div class="text-center mb-6">
+                            <div class="inline-block p-3 rounded-full bg-actionsa-light text-actionsa-green mb-4">
+                                <i class="fas fa-heart text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900">Fuel The Campaign</h3>
+                            <p class="text-gray-500 mt-2">We rely on your contributions to build the machinery that wins Emfuleni.</p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <button onclick="selectDonation(100)" class="donation-btn py-3 border-2 border-actionsa-green text-actionsa-green rounded-lg font-bold hover:bg-actionsa-green hover:text-white transition-all">R100</button>
+                            <button onclick="selectDonation(250)" class="donation-btn py-3 border-2 border-actionsa-green text-actionsa-green rounded-lg font-bold hover:bg-actionsa-green hover:text-white transition-all">R250</button>
+                            <button onclick="selectDonation(500)" class="donation-btn py-3 border-2 border-actionsa-green text-actionsa-green rounded-lg font-bold hover:bg-actionsa-green hover:text-white transition-all">R500</button>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Custom Amount (ZAR)</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span class="text-gray-500 sm:text-sm">R</span>
+                                </div>
+                                <input type="number" id="customDonation" class="block w-full pl-7 pr-12 py-3 border-gray-300 rounded-lg border focus:ring-actionsa-green focus:border-actionsa-green" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <button class="w-full bg-actionsa-green text-white font-bold py-4 rounded-lg hover:bg-actionsa-dark transition-all shadow-lg flex justify-center items-center gap-2">
+                            <i class="fas fa-lock"></i> Proceed to Secure Payment
+                        </button>
+
+                        <div class="mt-4 flex justify-center space-x-4 text-gray-400 text-2xl">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fas fa-mobile-alt" title="SnapScan"></i>
+                        </div>
+                        <p class="text-xs text-center text-gray-400 mt-4">
+                            *Note: This is a demo. To accept real payments, integrate PayFast, PayPal, or SnapScan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-12 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Stay In The Loop</h3>
+            <p class="text-gray-400 mb-8">Get the latest updates on our fight for Emfuleni directly to your inbox. No spam, just action.</p>
+            <form onsubmit="handleNewsletter(event)" class="flex flex-col sm:flex-row gap-4 justify-center">
+                <input type="email" placeholder="Enter your email address" class="px-6 py-3 rounded-full text-gray-900 w-full sm:w-96 focus:outline-none focus:ring-2 focus:ring-actionsa-green" required>
+                <button type="submit" class="bg-actionsa-green hover:bg-actionsa-accent text-white px-8 py-3 rounded-full font-bold transition-colors shadow-lg whitespace-nowrap">
+                    Subscribe
+                </button>
+            </form>
+            <div id="newsletterSuccess" class="hidden mt-4 text-green-400 text-sm">
+                <i class="fas fa-check-circle"></i> You have successfully subscribed!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-16 pb-8 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-actionsa-green rounded-full flex items-center justify-center text-white font-bold">A</div>
+                        <span class="font-bold text-xl text-gray-900">ActionSA Ward 15</span>
+                    </div>
+                    <p class="text-gray-500 text-sm">
+                        Building the ground force to win Emfuleni through service delivery, rule of law, and clean governance.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#home" class="hover:text-actionsa-green">Home</a></li>
+                        <li><a href="#opportunity" class="hover:text-actionsa-green">The Opportunity</a></li>
+                        <li><a href="#audit" class="hover:text-actionsa-green">The Audit</a></li>
+                        <li><a href="#rights" class="hover:text-actionsa-green">Know Your Rights</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Get Involved</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#join" class="hover:text-actionsa-green">Volunteer</a></li>
+                        <li><a href="#join" class="hover:text-actionsa-green">Donate</a></li>
+                        <li><a href="#audit" class="hover:text-actionsa-green">Log a Fault</a></li>
+                        <li><a href="#" class="hover:text-actionsa-green">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-actionsa-green text-xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-actionsa-green text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-actionsa-green text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-actionsa-green text-xl"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-500">
+                        <i class="fas fa-envelope mr-2"></i> ward15@actionsa-emfuleni.org<br>
+                        <i class="fas fa-phone mr-2"></i> 016 000 0000
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8">
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-yellow-400"></i>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-yellow-700">
+                                <strong>Compliance Notice:</strong> This website is a political communication. Promoted by ActionSA Ward 15 — Emfuleni. Authorised by the Ward 15 Coordinating Team. This is not an official ActionSA national website but a grassroots mobilisation platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                    <p>&copy; 2026 ActionSA Ward 15 — Emfuleni. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-actionsa-green">Privacy Policy</a>
+                        <a href="#" class="hover:text-actionsa-green">PAIA Manual</a>
+                        <a href="#" class="hover:text-actionsa-green">Terms of Use</a>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 text-center">
+                    In terms of the Regulation of Interception of Communications and Provision of Communication-Related Information Act 70 of 2002, all communications are subject to monitoring.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('text-white');
+                navbar.classList.add('text-gray-800');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.remove('text-gray-800');
+                navbar.classList.add('text-white');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleRight(id) {
+            const content = document.getElementById('right-' + id);
+            const icon = document.getElementById('icon-' + id);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        let faults = [
+            { type: 'water', area: 'Vereeniging Central', desc: 'Water overbilling for 6 months. Municipality refuses to correct meter readings. Resident paying R4,000/month for a small household.', date: '2 hours ago' },
+            { type: 'water', area: 'Three Rivers', desc: 'Water cuts lasting 3 days without notice. No communication from Emfuleni. Residents buying water from tankers.', date: '5 hours ago' },
+            { type: 'electricity', area: 'Sebokeng Zone 7', desc: 'Street lights out for 3 weeks. Safety risk for pedestrians and drivers. Reported multiple times, no response.', date: '1 day ago' },
+            { type: 'sewage', area: 'Beverly Hills', desc: 'Raw sewage overflowing into street near primary school. Health hazard for children. Municipality aware but inactive.', date: '1 day ago' },
+            { type: 'roads', area: 'Vanderbijlpark', desc: 'Massive potholes on main arterial road causing vehicle damage. Accident risk during rain.', date: '2 days ago' },
+            { type: 'water', area: 'Vereeniging', desc: 'Discoloured and foul-smelling water for 2 weeks. Residents fear contamination. No testing results provided.', date: '2 days ago' }
+        ];
+
+        function renderFaults() {
+            const list = document.getElementById('faultsList');
+            list.innerHTML = '';
+            faults.slice(0, 4).forEach((fault) => {
+                let icon = 'fa-exclamation-circle';
+                let color = 'text-yellow-500';
+                if(fault.type === 'sewage') { icon = 'fa-biohazard'; color = 'text-red-500'; }
+                if(fault.type === 'electricity') { icon = 'fa-bolt'; color = 'text-yellow-400'; }
+                if(fault.type === 'water') { icon = 'fa-tint'; color = 'text-blue-500'; }
+                if(fault.type === 'roads') { icon = 'fa-road'; color = 'text-gray-500'; }
+
+                const html = `
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm flex gap-4 items-start">
+                        <div class="mt-1 ${color}"><i class="fas ${icon} text-xl"></i></div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h5 class="font-bold text-gray-800 capitalize">${fault.type} Issue — ${fault.area}</h5>
+                                <span class="text-xs text-gray-400">${fault.date}</span>
+                            </div>
+                            <p class="text-sm text-gray-700 mt-1">${fault.desc}</p>
+                        </div>
+                    </div>
+                `;
+                list.innerHTML += html;
+            });
+        }
+
+        function submitFault(e) {
+            e.preventDefault();
+            const type = document.getElementById('faultType').value;
+            const area = document.getElementById('faultArea').value;
+            const desc = document.getElementById('faultDesc').value;
+
+            if(!type) { alert('Please select a fault type'); return; }
+
+            faults.unshift({ type: type, area: area, desc: desc, date: 'Just now' });
+            renderFaults();
+
+            const refId = 'AUDIT-' + Math.floor(Math.random() * 10000);
+            document.getElementById('refId').innerText = refId;
+            document.getElementById('faultSuccess').classList.remove('hidden');
+
+            document.getElementById('faultForm').reset();
+
+            setTimeout(() => {
+                document.getElementById('faultSuccess').classList.add('hidden');
+            }, 5000);
+        }
+
+        function handleVolunteer(e) {
+            e.preventDefault();
+            document.getElementById('volunteerSuccess').classList.remove('hidden');
+            document.getElementById('volunteerForm').reset();
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            document.getElementById('newsletterSuccess').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        function selectDonation(amount) {
+            document.getElementById('customDonation').value = amount;
+            const buttons = document.querySelectorAll('.donation-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-actionsa-green', 'text-white');
+                btn.classList.add('text-actionsa-green');
+            });
+            event.target.classList.remove('text-actionsa-green');
+            event.target.classList.add('bg-actionsa-green', 'text-white');
+        }
+
+        renderFaults();
+    </script>
+</body>
+</html>
